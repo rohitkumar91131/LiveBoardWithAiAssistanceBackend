@@ -31,7 +31,7 @@ app.get('/auth/google/callback', async (req, res) => {
     const userInfoRes = await fetch(`https://www.googleapis.com/oauth2/v1/userinfo?alt=json&access_token=${access_token}`);
     const user = await userInfoRes.json();
 
-    res.redirect(`http://localhost:5173/profile?name=${encodeURIComponent(user.name)}&email=${encodeURIComponent(user.email)}`);
+    res.redirect(`${REDIRECT_TO_FRONTEND}?name=${encodeURIComponent(user.name)}&email=${encodeURIComponent(user.email)}`);
   } catch (err) {
     console.error("OAuth error:", err);
     res.status(500).send("Authentication failed");

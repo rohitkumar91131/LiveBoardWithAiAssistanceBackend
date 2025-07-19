@@ -8,7 +8,7 @@ const app = express();
 const CLIENT_ID = process.env.GOOGLE_CLIENT_ID
 const CLIENT_SECRET = process.env.GOOGLE_CLIENT_SECRET
 const REDIRECT_URI = process.env.REDIRECT_URI
-
+const REDIRECT_TO_FRONTEND = process.env.REDIRECT_TO_FRONTEND
 app.get('/auth/google/callback', async (req, res) => {
   const code = req.query.code;
 
